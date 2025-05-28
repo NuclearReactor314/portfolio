@@ -2,154 +2,180 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Jennifer.exe</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jennifer Lu - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: repeating-conic-gradient(#000080 0deg 30deg, #ff00ff 30deg 60deg, #00ffff 60deg 90deg);
-      animation: spinBg 20s linear infinite;
+    /* Boot screen */
+    #boot-screen {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: #000080;
+      color: white;
+      font-family: 'Courier New', monospace;
+      font-size: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
     }
-
-    @keyframes spinBg {
-      0% { background-position: 0 0; }
-      100% { background-position: 1000px 1000px; }
+    #boot-progress {
+      width: 200px;
+      height: 8px;
+      background: white;
+      margin-top: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+    #boot-bar {
+      width: 0%;
+      height: 100%;
+      background: lime;
+      animation: load 2.5s linear forwards;
+    }
+    @keyframes load {
+      to { width: 100%; }
     }
 
     body {
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      animation: jitter 0.15s infinite alternate;
+      margin: 0;
+      padding: 0;
+      font-family: 'Press Start 2P', cursive;
+      background: linear-gradient(45deg, magenta, cyan, yellow, lime);
+      background-size: 400% 400%;
+      animation: bgShift 6s ease infinite;
+      overflow-x: hidden;
     }
 
-    @keyframes jitter {
-      from { transform: translate(1px, 0); }
-      to { transform: translate(-1px, 1px); }
+    @keyframes bgShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     .window {
-      background: rgba(255,255,255,0.9);
-      border: 4px double black;
-      margin: 60px auto;
-      max-width: 800px;
-      padding: 20px;
-      box-shadow: 0 0 20px red;
-      animation: wiggle 1s infinite ease-in-out alternate;
+      padding: 2rem;
+      text-align: center;
+      animation: spinScale 20s infinite linear;
     }
 
-    @keyframes wiggle {
-      from { transform: rotate(-1deg); }
-      to { transform: rotate(1deg); }
+    @keyframes spinScale {
+      0% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(360deg) scale(1.1); }
+      100% { transform: rotate(720deg) scale(1); }
     }
 
-    h1, h2, p, li {
-      animation: bounceText 1s infinite alternate;
-      position: relative;
+    h2 {
+      animation: jumpText 1s infinite alternate;
+      color: white;
     }
 
-    @keyframes bounceText {
-      0% { top: 0; }
-      100% { top: -5px; }
+    p, pre, li {
+      color: #fff;
+      animation: wobble 1s infinite alternate ease-in-out;
     }
 
-    nav {
-      background: yellow;
-      padding: 10px;
-      display: flex;
-      justify-content: space-around;
-      border: 3px dashed red;
+    @keyframes jumpText {
+      from { transform: translateY(0px); }
+      to { transform: translateY(-10px); }
+    }
+
+    @keyframes wobble {
+      from { transform: translateY(-2px) rotate(-2deg); }
+      to { transform: translateY(2px) rotate(2deg); }
     }
 
     nav a {
-      color: blue;
-      font-weight: bold;
-      font-size: 1.2rem;
+      margin: 1rem;
+      font-size: 1rem;
+      color: black;
+      background: yellow;
+      padding: 0.5rem;
       text-decoration: none;
+      border: 3px double magenta;
+      box-shadow: 0 0 10px lime;
+      animation: shake 0.2s infinite alternate;
     }
 
-    nav a:hover {
-      text-decoration: underline wavy red;
+    @keyframes shake {
+      0% { transform: rotate(-2deg); }
+      100% { transform: rotate(2deg); }
     }
 
-    pre {
-      background: black;
-      color: lime;
-      padding: 10px;
-      font-family: monospace;
-      overflow-x: auto;
-      border: 3px dashed magenta;
-    }
-
-    #sanity-button {
+    .serious-button {
       position: fixed;
       top: 20px;
       right: 20px;
-      padding: 10px 15px;
-      background: #00ccff;
-      border: 2px solid black;
-      color: black;
-      font-weight: bold;
-      cursor: pointer;
-      font-family: monospace;
-      z-index: 9999;
-      box-shadow: 0 0 10px white;
-    }
-
-    #sanity-button:hover {
-      background: red;
-      color: white;
-      transform: scale(1.1) rotate(2deg);
-    }
-
-    footer {
-      text-align: center;
-      padding: 10px;
+      font-family: 'Courier New', monospace;
       background: black;
       color: white;
-      font-size: 0.9rem;
+      border: 3px solid lime;
+      padding: 10px;
+      z-index: 100;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .serious-button:hover {
+      background: white;
+      color: black;
+      border-color: red;
     }
   </style>
 </head>
 <body>
-  <button id="sanity-button" onclick="location.href='professional.html'">Normal Version</button>
+  <div id="boot-screen">
+    <div>Microsoft Jennifer 98</div>
+    <div id="boot-progress"><div id="boot-bar"></div></div>
+  </div>
 
-  <div class="window">
-    <h1>Jennifer Lu - Porfolio 4 fun</h1>
+  <button class="serious-button" onclick="window.location.href='professional.html'">⚠ Go Professional</button>
+
+  <div class="window" style="display:none">
     <nav>
-      <a href="#code">Code</a>
-      <a href="#birds">Birds</a>
-      <a href="#run">Run</a>
+      <a href="#coding">PROGRAM?</a>
+      <a href="#birding">BIRD!</a>
+      <a href="#running">R U N !</a>
     </nav>
 
-    <section id="code">
-      <h2>Code Spaghetti</h2>
-      <p>I wrote so many errors, my IDE filed a restraining order.</p>
+    <section id="coding">
+      <h2>Programming</h2>
+      <p>I type random sh*ts and magic happens (sometimes)</p>
       <pre>
-function scream() {
-  return "aAaaaAAaaAAaaa!";
+function jennifer() {
+  return "bro had poisonous mushrooms for dinner()";
 }
       </pre>
     </section>
 
-    <section id="birds">
-      <h2>Feather Frenzy</h2>
-      <p>I chase tiny dinosaurs with my camera.</p>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Black_phoebe.jpg/320px-Black_phoebe.jpg" alt="black phoebe" />
-      <p>BLACK PHOEBE... again?!</p>
+    <section id="birding">
+      <h2>Birding</h2>
+      <p>Every bird is a government spy！</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Upupa_epops_1_Luc_Viatour.jpg/320px-Upupa_epops_1_Luc_Viatour.jpg" alt="bird">
+      <p>BLACK PHOEBE IS WATCHING YOU</p>
     </section>
 
-    <section id="run">
-      <h2>I AM SPEEEEEEEEED</h2>
+    <section id="running">
+      <h2>Running</h2>
+      <p>run() => run() => run() => collapse()</p>
       <ul>
-        <li>PR: 23:46.9</li>
-        <li>Training mode: hobble</li>
+        <li>3 Mile PR: 23:46.9</li>
+        <li>Most recent effort: 0% sanity</li>
       </ul>
-      <p>Goal: outrun my responsibilities</p>
     </section>
+
+    <footer>
+      <p>Built by Jennifer Lu | Battery: 1% | Sanity: 0%</p>
+    </footer>
   </div>
 
-  <footer>
-    Don't even ask me what's going on
-  </footer>
+  <script>
+    setTimeout(() => {
+      document.getElementById('boot-screen').style.display = 'none';
+      document.querySelector('.window').style.display = 'block';
+    }, 2600);
+  </script>
 </body>
 </html>
