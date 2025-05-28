@@ -170,12 +170,31 @@ function jennifer() {
       <p>Built by Jennifer Lu | Battery: 1% | Sanity: 0%</p>
     </footer>
   </div>
-
   <script>
-    setTimeout(() => {
-      document.getElementById('boot-screen').style.display = 'none';
-      document.querySelector('.window').style.display = 'block';
-    }, 2600);
-  </script>
+  setTimeout(() => {
+    document.getElementById('boot-screen').style.display = 'none';
+    document.querySelector('.window').style.display = 'block';
+
+    // Apply chaos to all text elements
+    const selectors = ['p', 'h2', 'li', 'pre', 'a'];
+    selectors.forEach(sel => {
+      document.querySelectorAll(sel).forEach(el => {
+        const original = el.innerText;
+        el.innerHTML = '';
+        [...original].forEach(char => {
+          const span = document.createElement('span');
+          span.className = 'chaos-char';
+          span.textContent = char;
+          span.style.setProperty('--dx', `${Math.random() * 4 - 2}px`);
+          span.style.setProperty('--dy', `${Math.random() * 4 - 2}px`);
+          span.style.setProperty('--rot', `${Math.random() * 10 - 5}deg`);
+          span.style.setProperty('--scale', `${1 + Math.random() * 0.2 - 0.1}`);
+          span.style.animationDelay = `${Math.random()}s`;
+          el.appendChild(span);
+        });
+      });
+    });
+  }, 2600);
+</script>
 </body>
 </html>

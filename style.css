@@ -78,3 +78,18 @@ footer {
   border-top: 2px dashed #000;
   font-size: 0.9rem;
 }
+
+.chaos-char {
+  display: inline-block;
+  animation: chaosMove 1.5s infinite ease-in-out alternate;
+  will-change: transform;
+}
+
+@keyframes chaosMove {
+  from {
+    transform: translate(var(--dx, 0px), var(--dy, 0px)) rotate(var(--rot, 0deg)) scale(var(--scale, 1));
+  }
+  to {
+    transform: translate(calc(var(--dx, 0px) * -1), calc(var(--dy, 0px) * -1)) rotate(calc(var(--rot, 0deg) * -1)) scale(var(--scale, 1));
+  }
+}
