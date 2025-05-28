@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="us">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jennifer Lu - Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Windows 98 启动动画 */
+    #boot-screen {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: #000080;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Courier New', monospace;
+      font-size: 1.5rem;
+      z-index: 1000;
+      flex-direction: column;
+    }
+    #boot-progress {
+      width: 200px;
+      height: 8px;
+      background: white;
+      margin-top: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+    #boot-bar {
+      width: 0%;
+      height: 100%;
+      background: lime;
+      animation: load 2.5s linear forwards;
+    }
+    @keyframes load {
+      to { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div id="boot-screen">
+    <div>Microsoft Jennifer 98</div>
+    <div id="boot-progress"><div id="boot-bar"></div></div>
+  </div>
+
+  <div class="window" style="display:none">
+    <div class="title-bar">
+      <span>Jennifer.exe</span>
+      <div class="buttons">
+        <button>-</button>
+        <button>□</button>
+        <button>X</button>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a href="#coding">Programming</a>
+      <a href="#birding">Bird Watching</a>
+      <a href="#running">RUNNING</a>
+    </nav>
+
+    <main class="content">
+      <section id="coding">
+        <h2>Programming</h2>
+        <p>I wrote more errors than code lol</p>
+        <pre>
+function helloJennifer() {
+  return "Hell, word!";
+}
+        </pre>
+        <p>📂 GitHub: <a href="https://github.com/NuclearReactor314" target="_blank">NuclearReactor314</a></p>
+      </section>
+
+      <section id="birding">
+        <h2>Bird Watching</h2>
+        <p>I chase after birds for pictures</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Upupa_epops_1_Luc_Viatour.jpg/320px-Upupa_epops_1_Luc_Viatour.jpg" alt="戴胜鸟">
+        <p>Black phoebe, black phoebe, and black phoebe, WHY IS BLACK PHOEBE EVERYWHERE?!</p>
+      </section>
+
+      <section id="running">
+        <h2>Running</h2>
+        <p>4th year of running, but still suck at it</p>
+        <ul>
+          <li>3 Mile PR: 23:46.9</li>
+          <li>Most recent practice: recovery</li>
+        </ul>
+        <p>target: WORLD RECORD!!!</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025 Jennifer Lu · Built with my last brain cell</p>
+    </footer>
+  </div>
+
+  <script>
+    setTimeout(() => {
+      document.getElementById('boot-screen').style.display = 'none';
+      document.querySelector('.window').style.display = 'block';
+    }, 2600);
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
