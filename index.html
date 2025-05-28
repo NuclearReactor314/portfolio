@@ -6,7 +6,31 @@
   <title>Jennifer Lu - Portfolio</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Windows 98 启动动画 */
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+    body {
+      background: black;
+      font-family: 'Press Start 2P', cursive;
+      color: lime;
+      margin: 0;
+      overflow-x: hidden;
+      animation: shake 0.5s infinite;
+    }
+
+    @keyframes shake {
+      0% { transform: translate(1px, 1px) rotate(0deg); }
+      10% { transform: translate(-1px, -2px) rotate(-1deg); }
+      20% { transform: translate(-3px, 0px) rotate(1deg); }
+      30% { transform: translate(3px, 2px) rotate(0deg); }
+      40% { transform: translate(1px, -1px) rotate(1deg); }
+      50% { transform: translate(-1px, 2px) rotate(-1deg); }
+      60% { transform: translate(-3px, 1px) rotate(0deg); }
+      70% { transform: translate(3px, 1px) rotate(-1deg); }
+      80% { transform: translate(-1px, -1px) rotate(1deg); }
+      90% { transform: translate(1px, 2px) rotate(0deg); }
+      100% { transform: translate(1px, -2px) rotate(-1deg); }
+    }
+
     #boot-screen {
       position: fixed;
       top: 0; left: 0;
@@ -21,6 +45,7 @@
       z-index: 1000;
       flex-direction: column;
     }
+
     #boot-progress {
       width: 200px;
       height: 8px;
@@ -29,14 +54,83 @@
       overflow: hidden;
       position: relative;
     }
+
     #boot-bar {
       width: 0%;
       height: 100%;
       background: lime;
       animation: load 2.5s linear forwards;
     }
+
     @keyframes load {
       to { width: 100%; }
+    }
+
+    .window {
+      padding: 1rem;
+      background: repeating-linear-gradient(45deg, #000000, #000000 10px, #111111 10px, #111111 20px);
+      color: lime;
+      border: 4px double lime;
+      margin: 2rem;
+    }
+
+    .title-bar {
+      background: #ff00ff;
+      padding: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1rem;
+    }
+
+    .buttons button {
+      margin-left: 4px;
+      background: red;
+      color: white;
+      font-weight: bold;
+    }
+
+    .nav a {
+      margin: 1rem;
+      text-decoration: none;
+      color: cyan;
+      background: magenta;
+      padding: 4px;
+      display: inline-block;
+      animation: spin 4s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    h2 {
+      animation: bounce 1s infinite alternate;
+    }
+
+    @keyframes bounce {
+      from { transform: translateY(0); }
+      to { transform: translateY(-10px); }
+    }
+
+    pre {
+      background: #222;
+      color: lime;
+      padding: 1rem;
+      border: 1px solid lime;
+    }
+
+    img {
+      filter: hue-rotate(180deg) contrast(2);
+      transform: rotate(-12deg);
+    }
+
+    footer {
+      margin-top: 2rem;
+      border-top: 1px solid lime;
+      padding-top: 1rem;
+      font-size: 0.75rem;
     }
   </style>
 </head>
@@ -71,13 +165,13 @@ function helloJennifer() {
   return "Hell, word!";
 }
         </pre>
-        <p>📂 GitHub: <a href="https://github.com/NuclearReactor314" target="_blank">NuclearReactor314</a></p>
+        <p>GitHub: <a href="https://github.com/NuclearReactor314" target="_blank">NuclearReactor314</a></p>
       </section>
 
       <section id="birding">
         <h2>Bird Watching</h2>
         <p>I chase after birds for pictures</p>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Upupa_epops_1_Luc_Viatour.jpg/320px-Upupa_epops_1_Luc_Viatour.jpg" alt="戴胜鸟">
+        <p>eBird: <a href="https://ebird.org/profile/NzA3NDIxOQ/US-CA" target="_blank">JenniFlu</a></p>
         <p>Black phoebe, black phoebe, and black phoebe, WHY IS BLACK PHOEBE EVERYWHERE?!</p>
       </section>
 
@@ -87,6 +181,8 @@ function helloJennifer() {
         <ul>
           <li>3 Mile PR: 23:46.9</li>
           <li>Most recent practice: recovery</li>
+          <p>Athletic.net: <a href="https://www.athletic.net/profile/JenniferLu1/feed" target="_blank">JenniferLu1</a></p>
+          <p>Strava: <a href="https://www.strava.com/athletes/139797834" target="_blank">Jennifer Lu</a></p>
         </ul>
         <p>target: WORLD RECORD!!!</p>
       </section>
