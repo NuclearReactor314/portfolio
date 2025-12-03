@@ -1,8 +1,8 @@
 const mileageData = {
-  labels: ['January', 'February', 'March', 'April', 'May'],
+  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November'],
   datasets: [{
     label: 'Miles Run',
-    data: [100, 102, 112, 120, 54], 
+    data: [100, 102, 112, 120, 80, 142, 142, 117, 124, 150, 68], 
     backgroundColor: 'rgba(52, 152, 219, 0.7)',
     borderColor: 'rgba(41, 128, 185, 1)',
     borderWidth: 2,
